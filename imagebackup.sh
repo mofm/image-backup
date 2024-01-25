@@ -181,6 +181,9 @@ function clone_disk {
   fi
   einfo "== Cloning $1 to $2 =="
   dd if="$1" of="$2" bs="$BLOCK_SIZE" conv="$OPT_CONV" status="$OPT_STATUS" || die "Failed to clone $1 to $2"
+  # to make sure the disk is synced
+  sync
+  einfo "== Cloning is successful =="
 }
 
 
